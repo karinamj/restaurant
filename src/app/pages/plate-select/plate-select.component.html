@@ -1,0 +1,40 @@
+<nav class="navbar navbar-light bg-warning">
+    <div style="display: flex; margin-left: 80vh;">
+        <img src="https://cdn-icons-png.flaticon.com/512/45/45332.png" height="50px">
+        <h1 style="margin-left: 9px;" class="text-center">Todos los platos</h1>
+    </div>
+</nav>
+
+<button type="button" style="margin-top: 20px; margin-left: 40px;" class="btn btn-outline-success" routerLink="/home">Regresar</button>
+
+
+<div class="container">
+    <div class="form-group" style="margin-top: 20px;">
+        <label class="form-label">TIPO DE PLATO</label>
+        <select #selectPlateType class="form-select" aria-label="Default select example" (change)='onChangePlateType(selectPlateType.value)'>
+            <option value="-1">Seleccionar tipo de plato</option>
+            <option *ngFor="let item of plateType" [value]="item.vegan">{{ item.name }}</option>
+        </select>
+    </div>
+
+
+    <h3>Platos</h3>
+    <hr>
+    <div class="row row-cols-auto dd">
+
+        <!-- card menu no vegano-->
+
+        <div *ngFor="let menu of menus; let i = index" style="margin-top: 40px;">
+            <div class="card" style="width: 12rem;" id="cardMenu">
+                <img src="{{menu.image}}" for="img" class="card-img-top" height="100" alt="...">
+                <div class="card-body">
+                    <div class="title"> {{menu.title}} </div>
+                    <div class="btns float-end">
+                        <button type="button" class="btn btn-warning btn-sm" (click)="selectPlate(menu.id)">SELECCIONAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

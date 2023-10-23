@@ -1,0 +1,59 @@
+<!-- Just an image -->
+<nav class="navbar navbar-warning bg-warning">
+    <div style="display: flex;">
+        <img src="https://cdn-icons-png.flaticon.com/512/45/45332.png" height="50px">
+        <h1 class="titleMenu">Crear plato</h1>
+    </div>
+</nav>
+
+<button type="button" style="margin-top: 20px; margin-left: 40px;" class="btn btn-outline-success" routerLink="/get/menu">Regresar</button>
+
+<div class="container-fluid">
+    <section id="pantalla-dividida">
+        <div class="izquierda">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+            <h6>Ingredientes</h6>
+            <hr class="hr1">
+            <div class="row row-cols-auto dd">
+                <!-- card menu vegano-->
+                <div *ngFor="let ingredient of ingredients; let i = index">
+                    <div class="card">
+                        <img src="https://spoonacular.com/cdn/ingredients_100x100/{{ingredient.image}}" for="img" class="card-img-top" height="100" alt="...">
+                        <div class="card-body">
+                            <div class="title1"> {{ingredient.name}} </div>
+                            <div class="btns float-end">
+                                <button type="button" class="btn btn-warning btn-sm btnAdd" (click)="addIngredient(ingredient)" [disabled]="ingredientsAdd.length == 12">AGREGAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="hr2">
+
+        <div class="derecha">
+            <h1 class="text-center titleIngredient">INGREDIENTES</h1>
+
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <button type="button" class="btn btn-warning" (click)="createPlateOfFood()" [disabled]="ingredientsAdd.length == 0">CREAR MENU</button>
+
+            </div>
+            <div class="container cardIngredients">
+                <div class="row row-cols-auto">
+                    <!-- card menu vegano-->
+                    <div *ngFor="let item of ingredientsAdd; let i = index">
+                        <div class="card" style="width: 6 rem;">
+                            <img src="https://spoonacular.com/cdn/ingredients_100x100/{{item.image}}" for="img" class="card-img-top" height="100" alt="...">
+                            <button type="button" class="btn btn-danger btn-sm" (click)="delete(item.name)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

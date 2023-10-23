@@ -1,0 +1,78 @@
+h6 {
+    margin-top: 20px;
+    color: red;
+}
+
+.izquierda {
+    height: 100vh;
+    width: 50%;
+    padding: 40px;
+}
+
+.derecha {
+    width: 50%;
+}
+
+#pantalla-dividida {
+    display: flex;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.hr1 {
+    background-color: red;
+}
+
+.hr2 {
+    border: none;
+    height: 90vh;
+    width: 1px;
+}
+
+.dd {
+    margin-left: 20px;
+}
+
+h1 {
+    margin-left: 10px;
+}
+
+.cardIngredients {
+    width: 600px;
+}
+
+.card {
+    margin-top: 5px;
+    width: 10rem;
+}
+
+.btnAdd {}
+
+.prueba {
+    padding: 20px;
+}
+
+@media (max-width:700px) {
+    .card {
+        margin-top: 5px;
+        width: 7rem;
+        height: 7rem;
+        text-align: center;
+    }
+    h1 {
+        padding: 20px;
+    }
+    .hr3 {
+        visibility: hidden !important;
+    }
+    .titleIngredient {
+        font-size: 20px;
+    }
+    .btnAdd {
+        visibility: hidden !important;
+    }
+    .titleMenu {
+        display: none;
+    }
+    .cardIngredients {}
+}

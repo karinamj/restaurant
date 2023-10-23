@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-warning">
+    <div style="display: flex;">
+        <img src="https://cdn-icons-png.flaticon.com/512/45/45332.png" height="50px">
+        <h1>Detalle Ingredientes</h1>
+    </div>
+</nav>
+
+<button type="button" style="margin-left: 50px; margin-top: 30px;" class="btn btn-outline-success  btnGo" routerLink="/">volver</button>
+
+<div class="container">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2 col-ms-12 mt-2">
+                <img id="image" class="image" src="{{menu.image}}" class="img-thumbnail" alt="..." style="width: 200px; height: 200px;">
+            </div>
+            <div class="col-md-10 col-ms-12 mt-4">
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">{{menu.name}}</li>
+                    <li class="list-group-item">Tiempo <span class="badge bg-warning"> {{menu.readyInMinutes}} minutos</span></li>
+                    <li class="list-group-item">puntaje de salud <span class="badge bg-warning">{{menu.healthScore}}</span></li>
+                    <li class="list-group-item">Valor <span class="badge bg-warning"> ${{menu.pricePerServing}}</span></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row row-cols-auto ">
+
+        <div *ngFor="let ingredient of ingredients; let i = index">
+            <div class="card mt-2" style="width: 10rem;" id="cardMenu">
+                <img src="https://spoonacular.com/cdn/ingredients_100x100/{{ingredient.image}}" for="img" class="card-img-top" height="100" alt="...">
+                <div class="card-body">
+                    <div class="title"> {{ingredient.name}} </div>
+                    <div class="btns float-end">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

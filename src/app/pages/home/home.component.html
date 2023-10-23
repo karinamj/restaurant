@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="container">
+    <h1>MENU DEL DIA</h1>
+    <hr />
+
+    <div class="container">
+        <div class="d-flex flex-row-reverse">
+            <button type="button" class="btn btn-warning" [disabled]="menu.length == 4" routerLink="/get/menu">
+                Crear Menu
+            </button>
+        </div>
+        <div class="row-cols-auto" style="margin-top: 70px">
+            <!-- card menu -->
+            <div class="row">
+                <div class="col-12">
+                    <h3>Total <span class="badge bg-warning">${{total}}</span></h3>
+                </div>
+            </div>
+            <div class="row row-cols-auto" style="margin-top: 20px">
+                <!-- card menu -->
+
+                <div *ngFor="let menu of menu; let i = index">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{menu.image}}" for="img" class="card-img-top" height="220" alt="..." />
+                        <div class="card-body">
+                            <div class="title">
+                                {{ menu.name }}
+                            </div>
+                            <div class="row">
+                                <div class="col-8"><label> Precio</label></div>
+
+                                <div class="col-4">
+                                    <div class="text tiempo text-center">
+                                        {{menu.pricePerServing}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="background-color: red" />
+
+                            <div class="row">
+                                <div class="col-8"><label> Tiempo</label></div>
+
+                                <div class="col-4">
+                                    <div class="text tiempo text-center">
+                                        {{ menu.readyInMinutes }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <label>puntaje de salud</label>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text text-center">{{ menu.healthScore }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btns float-end" style="padding: 10px;">
+                            <button type="button" class="btn btn-primary" (click)="seeDetail(menu.id)">
+                            Detalle
+                        </button>
+                            <button type="button" class="btn btn-danger" (click)="delete(menu.id)">
+                            Eliminar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
